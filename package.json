@@ -1,0 +1,23 @@
+{
+  "name": "pw",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "smoke": "npx playwright test --grep='smoke'",
+    "regression": "npx playwright test --grep='regression'",
+    "all": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "winston": "^3.17.0"
+  }
+}

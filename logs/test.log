@@ -1,0 +1,27 @@
+[2025-08-23 11:50:36] [32minfo[39m: Starting the test case for login
+[2025-08-23 11:52:22] [32minfo[39m: Starting the test case for login
+[2025-08-23 11:52:23] [32minfo[39m: Starting the test case for login
+[2025-08-23 11:52:25] [32minfo[39m: Starting the test case for login
+[2025-08-23 11:52:26] [32minfo[39m: Starting the test case for login
+[2025-08-23 11:52:29] [32minfo[39m: Starting the test case for login
+[2025-08-23 11:53:00] [32minfo[39m: This is api test case and we are learning loggers
+[2025-08-24 10:19:14] [32minfo[39m: This is api test case and we are learning loggers
+[2025-08-24 10:20:17] [32minfo[39m: This is api test case and we are learning loggers
+[2025-08-24 10:20:23] [32minfo[39m: ------- Api Test case is executed successfully
+[2025-08-24 11:20:27] [32minfo[39m: Browser fixture and we are in old page only 
+[2025-08-24 11:20:27] [32minfo[39m: New page is activated ,
+[2025-08-24 11:29:53] [32minfo[39m: Browser fixture and we are in old page only 
+[2025-08-24 11:29:53] [32minfo[39m: New page is activated ,
+[2025-08-24 11:30:34] [32minfo[39m: Browser fixture and we are in old page only 
+[2025-08-24 11:30:34] [32minfo[39m: New page is activated ,
+[2025-08-24 11:38:03] [32minfo[39m: Browser fixture and we are in old page only 
+[2025-08-24 11:38:03] [32minfo[39m: this is info message
+[2025-08-24 11:38:03] [32minfo[39m: New page is activated ,
+[2025-08-24 11:38:08] [31merror[39m: this is error message
+[2025-08-24 11:40:03] [32minfo[39m: Browser fixture and we are in old page only 
+[2025-08-24 11:40:03] [32minfo[39m: this is info message
+[2025-08-24 11:40:03] [32minfo[39m: New page is activated ,
+[2025-08-24 11:40:08] [31merror[39m: this is error message
+[2025-08-24 11:40:13] [34mdebug[39m: this is debug message
+[2025-08-24 11:41:17] [31merror[39m: this is error message
+[2025-09-07 11:52:43] [31merror[39m: this is error message
