@@ -1,0 +1,7 @@
+[
+  'Name (A to Z)',
+  'Name (Z to A)',
+  'Price (low to high)',
+  'Price (high to low)'
+]
+[ '$49.99', '$29.99', '$15.99', '$15.99', '$9.99', '$7.99' ]

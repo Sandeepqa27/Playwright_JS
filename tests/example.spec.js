@@ -39,3 +39,21 @@ test('welcome to playwright , full of oppurtunity', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
+
+
+// Example: Capture all network responses
+test('capture network responses', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/');
+  page.on('response', async response => {
+    const url = response.url();
+    const status = response.status();
+    // Optionally, get response body:
+    // const body = await response.text();
+    console.log(`Response: ${url} Status: ${status}`);
+  });
+
+  page.on('request', request => console.log('>>', request.method(), request.url()));
+ page.on('response', response => console.log('<<', response.status(), response.url()));
+  
+  // ...your test steps...
+});

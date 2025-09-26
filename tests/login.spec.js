@@ -68,7 +68,8 @@ test.only('tc04 - verify viewing the cart', async({page})=>{
     await page.click("#checkout");
     const dyna="sandeep"+getRandomInt(1,10000)+"@gmail.com";
     await page.locator("#first-name").fill(dyna);   
-    
+    const username="prabhu"+getRandomInt(1,10000);
+    console.log(username);
 
 
 })
