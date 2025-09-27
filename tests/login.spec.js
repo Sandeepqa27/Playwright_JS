@@ -146,14 +146,13 @@ test.only('tc 09visual testing',async({page})=>{
     
 })
 
-test.only('tc 10 Inbuilt playwright locators',async({page})=>{
+test.only('tc 10 Inbuilt playwright locators', async({ page }) => {
     await page.goto("https://www.saucedemo.com/");
-    await page.getByPlaceholder('Username').fill('sandeep');
-    await page.getByPlaceholder('Password').fill('sandeep123');
-    await page.getByRole('button',{name:'Login'}).click();
+    await page.getByPlaceholder('Username').fill('standard_user');
+    await page.getByPlaceholder('Password').fill('secret_sauce');
+    await page.getByRole('button', { name: 'Login' }).click();
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-    //Yet to go through few more inbuilt locators ...
-})
+});
 
 test('@Smoketest tc 10-2 Inbuilt playwright locators',async({page})=>{
     await page.goto("https://login.talview.com/login?redirect_url=https%253A%252F%252Fwt.talview.com%252Flogin");
