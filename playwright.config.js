@@ -32,6 +32,7 @@ workers:4,
   use: {
     headless:false,
     actionTimeout:10000,
+    trace:'on',
     
 
     /* Base URL to use in actions like `await page.goto('/')`. */
