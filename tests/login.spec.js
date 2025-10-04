@@ -1,5 +1,7 @@
 const {test,expect,request}=require('@playwright/test');
 import {logger} from "../logger"
+require('dotenv').config();
+const { LoginNewPage } = require('../pageobjects/LoginNewPage');
 ;
 // Page fixture , browser fixture 
 // Test case 1 - Login Functionality
@@ -21,7 +23,7 @@ async function login(page){
 }
 
 
-test.only('tc01-login functionality with valid un and ps',async({page})=>{
+test('smoke tc01-login functionality with valid un and ps',async({page})=>{
 
     await login(page);
     
@@ -40,7 +42,7 @@ test('tc02 - invalid functionality using blank un and ps',async({page})=>{
 })
 
 //add item to cart ....
-test.only("tc03 -add item to the cart",async({page})=>{
+test("tc03 -add item to the cart",async({page})=>{
 test.setTimeout(60_000);
     const product1=await  page.locator("//button[@data-test='add-to-cart-sauce-labs-backpack']");
     const product2=await page.locator("//button[@data-test='add-to-cart-sauce-labs-bike-light']");
@@ -54,7 +56,7 @@ test.setTimeout(60_000);
 
 })
 
-test.only('tc04 - verify viewing the cart', async({page})=>{
+test('tc04 - verify viewing the cart', async({page})=>{
 
     await login(page);
     //await page.locator("//button[@id='add-to-cart-sauce-labs-backpack']").click()
@@ -74,7 +76,7 @@ test.only('tc04 - verify viewing the cart', async({page})=>{
 
 })
 
-test.only('TC 05- verify sorting of items from low to high',async({page})=>{
+test('TC 05- verify sorting of items from low to high',async({page})=>{
 
     await login(page);
     const dropDown=await page.locator(".product_sort_container");
@@ -98,7 +100,7 @@ test.only('TC 05- verify sorting of items from low to high',async({page})=>{
 
 })
 
-test.only('TC 06- verify sorting of items from high to low',async({page})=>{
+test('TC 06- verify sorting of items from high to low',async({page})=>{
 
     await login(page);
     const dropDown=await page.locator(".product_sort_container");
@@ -115,7 +117,7 @@ test.only('TC 06- verify sorting of items from high to low',async({page})=>{
 
 })
 
-test.only('tc 07 - navigation methods and radio button ',async({page})=>{
+test('tc 07 - navigation methods and radio button ',async({page})=>{
     await page.goto("https://paytm.com/recharge");
     await page.goto("https://paytm.com/")
     //await page.pause();
@@ -128,7 +130,7 @@ test.only('tc 07 - navigation methods and radio button ',async({page})=>{
 
 
 
-test.only('tc 08 upload files ',async({page})=>{
+test('tc 08 upload files ',async({page})=>{
     await page.goto("https://the-internet.herokuapp.com/upload");
     await page.locator("#file-upload").setInputFiles("C:\\Users\\LENOVO\\Desktop\\Syllabus.docx");
     await page.locator("#file-submit").click();
@@ -139,14 +141,14 @@ test.only('tc 08 upload files ',async({page})=>{
 
 })
 
-test.only('tc 09visual testing',async({page})=>{
+test('tc 09visual testing',async({page})=>{
     await page.goto("https://www.instagram.com");
     await page.waitForTimeout(5000);
     expect( await page.screenshot()).toMatchSnapshot("afreen.png");
     
 })
 
-test.only('tc 10 Inbuilt playwright locators', async({ page }) => {
+test('tc 10 Inbuilt playwright locators', async({ page }) => {
     await page.goto("https://www.saucedemo.com/");
     await page.getByPlaceholder('Username').fill('standard_user');
     await page.getByPlaceholder('Password').fill('secret_sauce');
@@ -174,5 +176,13 @@ test("@Smoketest Api testing using playwright ",async({page})=>{
     logger.info("------- Api Test case is executed successfully")
 
 })
+
+
+test('Login with valid credentials', async ({ page }) => {
+  const loginnewPage = new LoginNewPage(page);
+  await loginnewPage.navigate();
+  await loginnewPage.login(process.env.USERNAME, process.env.PASSWORD);
+  await expect(page).toHaveURL(`${process.env.BASE_URL}/bank/main.jsp`);
+});
 
 

@@ -60,7 +60,7 @@ test("handling iframe",async ({page})=>{
     await page.waitForTimeout(10000);
 })
 
-test.only("Java dailog handling ", async({page})=>{
+test("Java dailog handling ", async({page})=>{
     await page.goto(process.env.exampleurl);
     // to press sequentially
     
