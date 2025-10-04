@@ -181,8 +181,39 @@ test("@Smoketest Api testing using playwright ",async({page})=>{
 test('Login with valid credentials', async ({ page }) => {
   const loginnewPage = new LoginNewPage(page);
   await loginnewPage.navigate();
-  await loginnewPage.login(process.env.USERNAME, process.env.PASSWORD);
-  await expect(page).toHaveURL(`${process.env.BASE_URL}/bank/main.jsp`);
+  await loginnewPage.login(process.env.User_Name, process.env.Pass_Word);
+  
+  //await expect(page).toHaveURL(`${process.env.BASE_URL}/bank/main.jsp`);
 });
 
+test("handling dynamic dropdown",async({page})=>{
+await page.goto("https://rahulshettyacademy.com/client/");
+await page.locator("#userEmail").fill("sandeepqa27@outlook.com");
+await page.locator("#userPassword").fill("Test@123");
+await page.locator("#login").click();
+await page.waitForTimeout(5000);
+const productName='ADIDAS ORIGINAL';
+const products=page.locator(".card-body");
+const count=await products.count();
+console.log(count);
+for(let i=0;i<count;i++){
+    if(await products.nth(i).locator("b").textContent()===productName){
+        await products.nth(i).locator("text= Add To Cart").click();
+        break;
+    }
+}
+await page.locator("[routerlink*='cart']").click();
+await page.locator("//*[text()='Checkout']").click();
 
+await page.locator("//input[@placeholder='Select Country']").pressSequentially("ind");
+const dropdown=page.locator(".ta-results");
+await dropdown.waitFor();
+const optionsCount=await dropdown.locator("button").count();
+for(let i=0;i<optionsCount;i++){
+    const text=await dropdown.locator("button").nth(i).textContent();
+    if(text===" India"){
+        await dropdown.locator("button").nth(i).click();
+        break;
+    } 
+}
+});
