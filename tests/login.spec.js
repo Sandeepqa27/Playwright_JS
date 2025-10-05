@@ -188,7 +188,7 @@ test('Login with valid credentials', async ({ page }) => {
 
 test("handling dynamic dropdown",async({page})=>{
 await page.goto("https://rahulshettyacademy.com/client/");
-await page.locator("#userEmail").fill("sandeepqa27@outlook.com");
+await page.locator("#userEmail").fill("");
 await page.locator("#userPassword").fill("Test@123");
 await page.locator("#login").click();
 await page.waitForTimeout(5000);
